@@ -529,7 +529,7 @@
     grid-column: span 1;
   }
   .svc-card {
-    background: #1A1A1A;
+    background: var(--white);
     border: 1.5px solid #D4C5A9;
     border-top: 3px solid transparent;
     padding: 0;
@@ -557,17 +557,19 @@
   .svc-card:hover {
     border-color: var(--gold);
     border-top: 3px solid var(--gold);
-    background: #1f1f1f;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    background: rgba(13,27,42,0.04);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
+  .svc-card:hover .svc-name { color: var(--white); }
+  .svc-card:hover .svc-desc { color: rgba(255,255,255,0.82); }
   .svc-ico { width: 32px; height: 32px; color: var(--gold); margin-bottom: 24px; }
   .svc-name {
     font-family: var(--f-display);
-    font-size: 24px; font-weight: 500; color: #F0EDE8;
+    font-size: 24px; font-weight: 500; color: #141414;
     line-height: 1.2; margin-bottom: 14px;
   }
   .svc-desc {
-    font-family: var(--f-body); font-size: 15px; color: rgba(240,237,232,0.75);
+    font-family: var(--f-body); font-size: 15px; color: #2A2A2A;
     line-height: 1.55; flex-grow: 1;
   }
   .svc-go {
