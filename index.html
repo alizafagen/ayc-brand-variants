@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AYC — Brand Variants</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'IBM Plex Mono', monospace; background: #080C10; color: #fff; }
+.bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: #080C10; border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; gap: 0; height: 54px; padding: 0 24px;
+}
+.bar-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-right: 20px; }
+.tab {
+  padding: 8px 22px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; border: 1px solid rgba(255,255,255,0.12); background: transparent;
+  color: rgba(255,255,255,0.45); font-family: 'IBM Plex Mono', monospace;
+  transition: all .18s; margin-right: 6px; white-space: nowrap;
+}
+.tab.active { background: #C9973A; color: #000; border-color: #C9973A; font-weight: 600; }
+.tab:hover:not(.active) { color: #fff; border-color: rgba(255,255,255,0.35); }
+.badge {
+  font-size: 9px; letter-spacing: 0.08em; padding: 2px 7px;
+  border-radius: 2px; margin-left: 8px; vertical-align: middle;
+}
+.badge-curr { background: rgba(201,151,58,0.15); color: #C9973A; }
+.badge-new  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+.frame-wrap { padding-top: 54px; height: 100vh; }
+iframe { width: 100%; height: 100%; border: none; display: block; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <span class="bar-label">AYC Brand</span>
+  <button class="tab active" onclick="show('original')">
+    Current Design <span class="badge badge-curr">Live</span>
+  </button>
+  <button class="tab" onclick="show('d2')">
+    Direction 2 — Tactical Premium <span class="badge badge-new">Dark / Amber</span>
+  </button>
+  <button class="tab" onclick="show('d3')">
+    Direction 3 — Executive Protection <span class="badge badge-new">Light / Refined</span>
+  </button>
+</div>
+<div class="frame-wrap">
+  <iframe id="frame" src="original.html"></iframe>
+</div>
+<script>
+function show(v) {
+  document.getElementById('frame').src = v + '.html';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+}
+</script>
+</body>
+</html>
